@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+
+    <script>
+
+        var myApp = angular.module('myApp',['ui.router']);
+
+        myApp.controller('routerController',function($scope){
+            $scope.Hello = "Hello";
+        });
+
+        myApp.config(function($stateProvider,$urlRouterProvider){
+                $stateProvider.state('state1',{
+                    url:"/state1",
+                    templateUrl:"partials/state1.html"
+                });
+        });
+
+    </script>
+</head>
+<body ng-app="myApp" ng-controller="routerController">
+
+    <div > {{Hello}}</div>
+</body>
+
+<li> <a ui-sref="state1">state1 </a> </li>
+
+
+</html>
