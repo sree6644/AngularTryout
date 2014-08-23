@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="bower_components\angular\angular.js"></script>
+</head>
+<body ng-app="transcludeApp" ng-controller="myController">
+
+<p output-my-name/>
+   <br>{{name}} </Br>
+</p>
+<script>
+    var app = angular.module('transcludeApp',[]);
+    app.controller('myController',function($scope){
+       $scope.name= 'Sriram alagappa scope';
+    });
+    app.directive('outputMyName',function(){
+       return {
+           transclude:true,
+           scope:{},
+           template: '<div ng-transclude></div>'
+       }
+    });
+
+</script>
+
+</body>
+</html>

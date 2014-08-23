@@ -4,21 +4,22 @@
     <meta charset="UTF-8">
     <title></title>
 
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 
     <script>
 
         var myApp = angular.module('myApp',['ui.router']);
 
         myApp.controller('routerController',function($scope){
-            $scope.Hello = "Hello";
+            $scope.Hello = "Hello Sriram";
         });
 
         myApp.config(function($stateProvider,$urlRouterProvider){
                 $stateProvider.state('state1',{
                     url:"/state1",
-                    templateUrl:"partials/state1.html"
+                    template: "<h1> staates </h1>"
+                    //templateUrl:"state1.html"
                 });
         });
 
@@ -27,9 +28,12 @@
 <body ng-app="myApp" ng-controller="routerController">
 
     <div > {{Hello}}</div>
-</body>
 
-<li> <a ui-sref="state1">state1 </a> </li>
+        <section ui-view></section>
+
+   <!-- <li> <a ui-view="state1">state1 </a> </li> -->
+
+</body>
 
 
 </html>

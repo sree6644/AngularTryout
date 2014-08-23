@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="bower_components\angular\angular.js"></script>
+</head>
+<body ng-app="directivetry">
+
+<div ng-controller="myController">
+    <customer-info info="sriram"></customer-info>
+</div>
+
+<script>
+    var app = angular.module('directivetry',[]);
+    app.controller('myController',function($scope){
+
+        $scope.sriram = {firstname:"sriram",lastname:"alagappa"};
+
+    });
+    app.directive('customerInfo',function(){
+
+        return {
+          restrict : 'E',
+          scope : {
+              customerInfo:'=info'
+          },
+          template:'<h3>firstname: {{customerInfo.firstname}} : lastname : {{customerInfo.lastname}}</h3>'
+        };
+    });
+
+</script>
+
+</body>
+</html>
